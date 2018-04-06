@@ -1,0 +1,15 @@
+<Page loaded="onLoaded" class="page" xmlns="http://www.nativescript.org/tns.xsd">
+
+	<ActionBar title="Movie Details" class="action-bar">
+	</ActionBar>
+	<GridLayout rows="auto,*" height="100%" >
+		<GridLayout row="0">
+			<Label text="{{ name }}" class="movie-label" id="movieLabel" />
+		</GridLayout>
+		<StackLayout row="1">
+			<Label text="{{ description }}" id="movieDesc" textWrap="true" class="customMovie" />
+			<Image src="{{ img }}" id="movieImage" class="customImage" />
+			<Label text="{{ year }}" id="movieYear" class="customYear" />
+		</StackLayout>
+	</GridLayout>
+</Page>

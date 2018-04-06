@@ -1,0 +1,14 @@
+<Page loaded="loaded" xmlns:lv="nativescript-ui-listview">
+	<ActionBar title="mobileMovies" class="action-bar">
+	</ActionBar>
+
+    <GridLayout orientation="vertical" columns="*" rows="*,*,*" >
+        <Label text="This is the scan a UPC symbol Page" class="custom1" textWrap="true" col="0" row="0"/>
+
+        <Label text="&#xe937;" class="icon" color="lightblue" col="0" row="1"/>
+
+        <Label text="then add to the data list to database" textWrap="true" class="custom1" col="0" row="2"/>
+    </GridLayout>
+
+
+</Page>

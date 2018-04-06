@@ -1,0 +1,103 @@
+@import 'nativescript-theme-core/css/core.dark.css';
+
+
+.icon {
+    font-family: 'IcoMoon-Free', 'icomoon';
+    font-size: 40;
+
+}
+
+
+
+.home-panel{
+    vertical-align: center;   
+    opacity: 0;
+}
+
+.add-label{
+    font-size: 20;
+    background-color: lightblue;
+    horizontal-align: right;
+    margin: 5,5,5,5;
+    font-family: 'Times New Roman';
+}
+.header-label{
+    font-size: 40;
+    background-color: yellow;
+    horizontal-align: center;
+    margin: 20,20,20,20;
+    font-family: 'Times New Roman';
+}
+
+.movie-label{
+    font-size: 40;
+    background-color: yellow;
+    horizontal-align: left;
+    margin: 10,10,10,10;
+    font-family: 'Times New Roman';
+}
+
+GridLayout  { 
+    background-color: darkmagenta;
+    border-width: 5;
+    margin: 7;
+    padding-top: 20;
+    border-bottom-color: aquamarine;
+
+}
+
+.custom1{
+    color: lightblue;
+    font-family: Helvetica;
+    font-size: 25;
+    margin: 7;
+    horizontal-align: left;
+}
+
+.custom2{
+    color: yellow;
+    font-family: 'Courier New';
+    font-size: 12;
+    margin: 7;
+    horizontal-align: left;
+}
+
+.custom3{
+    color: antiquewhite;
+    font-family: 'Franklin Gothic Medium';
+    font-size: 15;
+    margin: 7;
+    horizontal-align: right;
+    width: 100;
+}
+
+.customMovie{
+    color: yellow;
+    background-color: darkblue;
+    font-family: 'Courier New';
+    font-size: 20;
+    margin: 10,10,10,10;
+    text-align: center;
+
+}
+
+.customYear{
+    color: antiquewhite;
+    background-color: darkblue;
+    font-family: 'Franklin Gothic Medium';
+    font-size: 15;
+    margin: 7;
+    text-align: center;
+    width: 100;
+}
+.view {
+    animation-name: opacity;
+    animation-duration: 100;
+}
+
+.customImage  { 
+    height:250;
+    width: 250;
+    margin:15,15,15,15;
+
+}
