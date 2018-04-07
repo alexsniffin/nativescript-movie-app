@@ -1,14 +1,19 @@
 var view = require("ui/core/view");
 var frameModule = require("ui/frame");
 var HomeViewModel = require("./home-view-model");
+var barcode = require("../../services/barcode-api")
+
 var page;
 var homeViewModel = new HomeViewModel();
-
 
 function pageLoaded(args) {
     //dynamic binding to home-view-model array
     page = args.object;
     page.bindingContext = page.navigationContext;
+
+    barcode.getBarcodeFor("786936849769", function(viewModel) {
+        console.log("HERE" + viewModel);
+    });
 
     //loop thru array updating xml grid for each item
     for (var movieIndex = 0; movieIndex < homeViewModel.length; movieIndex++) {
