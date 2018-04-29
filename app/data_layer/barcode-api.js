@@ -5,8 +5,18 @@ const api = (upcId) => "https://www.barcodelookup.com/restapi?barcode=" + upcId 
 
 exports.getBarcodeFor = function (upcId = "786936849769", callback) {
     http.getJSON(api(upcId)).then(result => {
-        // formart the data into a viewmodel
-        // ...
+        // Update models with weather API content
+        result.list.forEach(weatherObj => observableArrResult.push(new WeatherViewModel(
+            weatherObj.dt,
+            weatherObj.temp,
+            weatherObj.preasure,
+            weatherObj.humidty,
+            weatherObj.weather,
+            weatherObj.speed,
+            weatherObj.deg,
+            weatherObj.clouds,
+            weatherObj.snow
+        )));
         
         callback(result);
     });

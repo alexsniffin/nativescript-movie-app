@@ -1,7 +1,7 @@
 var view = require("ui/core/view");
 var frameModule = require("ui/frame");
-var HomeViewModel = require("./home-view-model");
-var barcode = require("../../services/barcode-api")
+var HomeViewModel = require("../../models/home/home-view-model");
+var barcode = require("../../data_layer/barcode-api")
 
 var page;
 var homeViewModel = new HomeViewModel();
