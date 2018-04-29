@@ -1,28 +1,60 @@
 var view = require("ui/core/view");
 var frameModule = require("ui/frame");
 var HomeViewModel = require("../../models/home/home-view-model");
-var barcode = require("../../data_layer/barcode-api")
+var barcodeService = require("../../services/barcode");
+var db = require("../../data_layer/db/sql-lite");
+var ObservableArray = require("data/observable-array").ObservableArray;
+var BarcodeModel = require("../../models/barcode/barcode-model");
 
 var page;
+var dbContext;
 var homeViewModel = new HomeViewModel();
+var observableBarcodes = new ObservableArray();
 
 function pageLoaded(args) {
     //dynamic binding to home-view-model array
     page = args.object;
-    page.bindingContext = page.navigationContext;
 
-    //loop thru array updating xml grid for each item
-    for (var movieIndex = 0; movieIndex < homeViewModel.length; movieIndex++) {
-        page.getViewById('image' + movieIndex ).src = homeViewModel[movieIndex].img;
-        page.getViewById("name" + movieIndex).text = homeViewModel[movieIndex].name;
-        page.getViewById("desc" + movieIndex).text = homeViewModel[movieIndex].description;
-        page.getViewById("year" + movieIndex).text = homeViewModel[movieIndex].year;
-    };
+    // create a database context and set up the page
+    db.start(context => {
+        dbContext = context;
 
-    //Animation
-    view.getViewById(page, "myStack").animate({
-        opacity: 1,
-        duration: 5000
+        dbContext.all('select * from barcode', function(err, resultSet) {
+            console.log("Result set is:", resultSet);
+
+            if (resultSet.length == 0) {
+                // TODO show something
+            }
+
+            resultSet.forEach(result => {
+                // result[0] is id
+                var model = new BarcodeModel(result[1], result[2], result[3], result[4], result[5]);
+
+                // Add to array
+                observableBarcodes.push(model);
+
+                // Populate the UI
+                page.getViewById('image0').src = model.image;
+                page.getViewById("name0").text = model.productName;
+                page.getViewById("desc0").text = model.longDescription;
+                page.getViewById("year0").text = "";
+            
+                view.getViewById(page, "myStack").animate({
+                    opacity: 1,
+                    duration: 5000
+                });
+            });
+        });
+        
+        /*
+        example...
+        barcodeService.getAndInsert("786936849769", dbContext, (id, result) => {
+            console.log("ID : " + id + " and " + result);
+
+            dbContext.all('select * from barcode', function(err, resultSet) {
+                console.log("Result set is:", resultSet);
+            });
+        });*/
     });
 }
 exports.pageLoaded = pageLoaded;

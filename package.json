@@ -8,11 +8,11 @@
         "tns-android": {
             "version": "3.4.1"
         },
-        "tns-ios": {
-            "version": "3.4.1"
-        },
         "playground": {
             "id": "1425110704.1518559658"
+        },
+        "tns-ios": {
+            "version": "3.4.1"
         }
     },
     "scripts": {
@@ -27,6 +27,7 @@
         "nativescript-intl": "^3.0.0",
         "nativescript-iqkeyboardmanager": "^1.2.0",
         "nativescript-social-share": "^1.5.0",
+        "nativescript-sqlite": "^2.2.0",
         "nativescript-theme-core": "~1.0.4",
         "nativescript-ui-autocomplete": "^3.6.0",
         "nativescript-ui-calendar": "^3.5.0",
