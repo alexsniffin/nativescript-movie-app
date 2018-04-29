@@ -11,7 +11,7 @@ exports.getMovie = function (productName, callback) {
         var models = new ObservableArray();
 
         models.load = function () {
-            http.getJSON(api(movieID)).then(result=>{
+            http.getJSON(api(productName)).then(result=>{
                 if (result != undefined) {
                     result.forEach(item=>{
                         models.push({
