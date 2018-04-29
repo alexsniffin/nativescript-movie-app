@@ -1,9 +1,7 @@
 var Sqlite = require( "nativescript-sqlite" );
 
 function checkTables(db) {
-    if (!Sqlite.exists("barcode.sqlite")) {
-        db.execSQL("CREATE TABLE IF NOT EXISTS barcode (id INTEGER PRIMARY KEY AUTOINCREMENT, upc INTEGER, productName TEXT, manufacturer TEXT, longDescription TEXT, image TEXT)")
-    }
+    db.execSQL("CREATE TABLE IF NOT EXISTS barcode (id INTEGER PRIMARY KEY AUTOINCREMENT, upc INTEGER, productName TEXT, manufacturer TEXT, longDescription TEXT, image TEXT)")
 }
 
 exports.start = function (callback) {
