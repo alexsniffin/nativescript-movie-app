@@ -11,10 +11,6 @@ function pageLoaded(args) {
     page = args.object;
     page.bindingContext = page.navigationContext;
 
-    barcode.getBarcodeFor("786936849769", function(viewModel) {
-        console.log("HERE" + viewModel);
-    });
-
     //loop thru array updating xml grid for each item
     for (var movieIndex = 0; movieIndex < homeViewModel.length; movieIndex++) {
         page.getViewById('image' + movieIndex ).src = homeViewModel[movieIndex].img;
