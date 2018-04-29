@@ -1,7 +1,7 @@
 var http = require("http");
 var BarcodeModel = require("../../models/barcode/barcode-model");
 
-const key = "0kyuzuke3se3p8qpkfs0wdln1e3l3w"
+const key = "z44hcwkjmenf4r9tb1dng5w4rxq5c7"
 const api = (upcId) => "https://www.barcodelookup.com/restapi?barcode=" + upcId + "&formatted=y&key=" + key
 
 exports.getFromUpc = function (upcId = "786936849769", callback) {
@@ -17,5 +17,7 @@ exports.getFromUpc = function (upcId = "786936849769", callback) {
             // Pass the model to the callback
             callback(model);
         }
+    }, (err) => {
+        console.log(err);
     });
 }

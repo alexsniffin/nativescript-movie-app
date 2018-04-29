@@ -19,42 +19,40 @@ function pageLoaded(args) {
     db.start(context => {
         dbContext = context;
 
-        dbContext.all('select * from barcode', function(err, resultSet) {
-            console.log("Result set is:", resultSet);
+        barcodeService.getAndInsert("786936849769", dbContext, (barcodeId, omdbId, barCodeResult, omdbResult) => {
+            console.log("ID : " + barcodeId + " and " + barCodeResult + " and " + omdbResult);
 
-            if (resultSet.length == 0) {
-                // TODO show something
-            }
+            dbContext.all('select * from barcode left join omdb on barcode.id == omdb.barcodeID where barcode.id = ?', [barcodeId], function(err, resultSet) {
+                console.log("Result set is:", resultSet);
+            });
 
-            resultSet.forEach(result => {
-                // result[0] is id
-                var model = new BarcodeModel(result[1], result[2], result[3], result[4], result[5]);
-
-                // Add to array
-                observableBarcodes.push(model);
-
-                // Populate the UI
-                page.getViewById('image0').src = model.image;
-                page.getViewById("name0").text = model.productName;
-                page.getViewById("desc0").text = model.longDescription;
-                page.getViewById("year0").text = "";
-            
-                view.getViewById(page, "myStack").animate({
-                    opacity: 1,
-                    duration: 5000
+            dbContext.all('select * from omdb', function(err, resultSet) {
+                //console.log("Result set is:", resultSet);
+    
+                if (resultSet.length == 0) {
+                    // TODO show something
+                }
+    
+                resultSet.forEach(result => {
+                    // result[0] is id
+                    var model = new BarcodeModel(result[1], result[2], result[3], result[4], result[5]);
+    
+                    // Add to array
+                    observableBarcodes.push(model);
+    
+                    // Populate the UI
+                    page.getViewById('image0').src = model.image;
+                    page.getViewById("name0").text = model.productName;
+                    page.getViewById("desc0").text = model.longDescription;
+                    page.getViewById("year0").text = "";
+                
+                    view.getViewById(page, "myStack").animate({
+                        opacity: 1,
+                        duration: 5000
+                    });
                 });
             });
         });
-        
-        /*
-        example...
-        barcodeService.getAndInsert("786936849769", dbContext, (id, result) => {
-            console.log("ID : " + id + " and " + result);
-
-            dbContext.all('select * from barcode', function(err, resultSet) {
-                console.log("Result set is:", resultSet);
-            });
-        });*/
     });
 }
 exports.pageLoaded = pageLoaded;

@@ -1,12 +1,14 @@
+var observableModule = require("data/observable");
+
 function OmdbModel(
     year = "", 
     rated = "",
-    rating = "",
-    release = "",
-    time = "",
+    imdbRating = "",
+    released = "",
+    runtime = "",
     genre = "",
     director = "",
-    writers = "",
+    writer = "",
     language = "") {
     var viewModel = observableModule.fromObject({
         year: year, 
