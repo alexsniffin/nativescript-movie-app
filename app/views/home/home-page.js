@@ -4,59 +4,74 @@ var HomeViewModel = require("../../models/home/home-view-model");
 var barcodeService = require("../../services/barcode");
 var db = require("../../data_layer/db/sql-lite");
 var ObservableArray = require("data/observable-array").ObservableArray;
-var BarcodeModel = require("../../models/barcode/barcode-model");
+var observableModule = require("data/observable");
+var MovieModel = require("../../models/movie/movie-model");
 
 var page;
 var dbContext;
 var homeViewModel = new HomeViewModel();
-var observableBarcodes = new ObservableArray();
+var observableMovies = new ObservableArray();
 
 function pageLoaded(args) {
     //dynamic binding to home-view-model array
     page = args.object;
 
+    const context = page.navigationContext;
+
+    if (context != undefined ) {
+
+    }
+
     // create a database context and set up the page
     db.start(context => {
         dbContext = context;
 
-        barcodeService.getAndInsert("786936849769", dbContext, (barcodeId, omdbId, barCodeResult, omdbResult) => {
-            console.log("ID : " + barcodeId + " and " + barCodeResult + " and " + omdbResult);
+        dbContext.all('select * from barcode left join omdb on barcode.id == omdb.barcodeID', function(err, resultSet) {
+            console.log("Result set is:", resultSet);
+            
+            if (resultSet.length == 0) {
+                // TODO show something 
+            }
 
-            dbContext.all('select * from barcode left join omdb on barcode.id == omdb.barcodeID where barcode.id = ?', [barcodeId], function(err, resultSet) {
-                console.log("Result set is:", resultSet);
+            resultSet.forEach(result => {
+                // result[0] is barcode id, and result[6] is omdb id, result[7] is foreign key for barcode
+                var model = new MovieModel(
+                    resultSet[1], 
+                    resultSet[2], 
+                    resultSet[3], 
+                    resultSet[4], 
+                    resultSet[5],
+                    resultSet[8],
+                    resultSet[9],
+                    resultSet[10],
+                    resultSet[11],
+                    resultSet[12],
+                    resultSet[13],
+                    resultSet[14],
+                    resultSet[15],
+                    resultSet[16],
+                    resultSet[17]
+                );
+
+                // Add to array
+                observableMovies.push(model);
             });
 
-            dbContext.all('select * from omdb', function(err, resultSet) {
-                //console.log("Result set is:", resultSet);
-    
-                if (resultSet.length == 0) {
-                    // TODO show something
-                }
-    
-                resultSet.forEach(result => {
-                    // result[0] is id
-                    var model = new BarcodeModel(result[1], result[2], result[3], result[4], result[5]);
-    
-                    // Add to array
-                    observableBarcodes.push(model);
-    
-                    // Populate the UI
-                    page.getViewById('image0').src = model.image;
-                    page.getViewById("name0").text = model.productName;
-                    page.getViewById("desc0").text = model.longDescription;
-                    page.getViewById("year0").text = "";
-                
-                    view.getViewById(page, "myStack").animate({
-                        opacity: 1,
-                        duration: 5000
-                    });
-                });
+            view.getViewById(page, "myStack").animate({
+                opacity: 1,
+                duration: 5000
             });
+
+            var bindingObjs = observableModule.fromObject({
+                observableMovies: observableMovies,
+                // Other binding objects
+            });
+          
+            // Bind results
+            page.bindingContext = bindingObjs;
         });
     });
 }
-exports.pageLoaded = pageLoaded;
-
 
 function selectMovie(args) {
     //parse the movie info
@@ -81,7 +96,6 @@ function selectMovie(args) {
     };
     frameModule.topmost().navigate(navigateMovie);
 };
-exports.selectMovie = selectMovie;
 
 onUpcTap = function () {
     console.log("Navigate to UPC Page from Home Page");
@@ -96,7 +110,6 @@ onUpcTap = function () {
     };
     frameModule.topmost().navigate(navigationUPC);
 };
-exports.onUpcTap = onUpcTap;
 
 onAddTap = function () {
     console.log("Navigate to Manual add Page from Home Page");
@@ -111,4 +124,8 @@ onAddTap = function () {
     };
     frameModule.topmost().navigate(navigationAdd);
 };
+
+exports.selectMovie = selectMovie;
+exports.onUpcTap = onUpcTap;
 exports.onAddTap = onAddTap;
+exports.pageLoaded = pageLoaded;

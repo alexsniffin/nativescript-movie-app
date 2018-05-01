@@ -12,7 +12,13 @@ exports.getOmdbData = function (productName, callback) {
         callback(result);
     });
 }
-
+/**
+ * Usage:
+ * barcodeService.getAndInsert("786936849769", dbContext, (barcodeId, omdbId, barCodeResult, omdbResult) => { });
+ * @param {*} upc 
+ * @param {*} dbContext 
+ * @param {*} callback 
+ */
 exports.getAndInsert = function (upc, dbContext, callback) {
     var context = this;
 

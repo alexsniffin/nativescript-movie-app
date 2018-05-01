@@ -1,6 +1,11 @@
 var observableModule = require("data/observable");
 
-function OmdbModel(
+function MovieModel(
+    upc = 0, 
+    productName = "", 
+    manufacturer = "",
+    longDescription = "",
+    image = "",
     year = "", 
     rated = "",
     imdbRating = "",
@@ -11,6 +16,11 @@ function OmdbModel(
     writer = "",
     language = "") {
     var viewModel = observableModule.fromObject({
+        upc: upc,
+        productName: productName,
+        manufacturer: manufacturer,
+        longDescription: longDescription,
+        image: image,
         year: year, 
         rated: rated,
         rating: imdbRating,
@@ -25,4 +35,4 @@ function OmdbModel(
     return viewModel;
 }
 
-module.exports = OmdbModel;
+module.exports = MovieModel;
