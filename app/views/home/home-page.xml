@@ -12,7 +12,7 @@
 				<ListView items="{{ observableMovies }}">
 					<ListView.itemTemplate>
 						<GridLayout columns="*,*,*" rows="*,*,*">
-							<Label text="{{ productName }}" col="0" color="black" textWrap="true" />
+							<Label text="{{ productName || 'Default' }}" col="0" color="black" textWrap="true" />
 						</GridLayout>
 					</ListView.itemTemplate>
 				</ListView>

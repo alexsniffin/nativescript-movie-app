@@ -35,23 +35,27 @@ function pageLoaded(args) {
 
             resultSet.forEach(result => {
                 // result[0] is barcode id, and result[6] is omdb id, result[7] is foreign key for barcode
+                console.log(result.productName);
+                
                 var model = new MovieModel(
-                    resultSet[1], 
-                    resultSet[2], 
-                    resultSet[3], 
-                    resultSet[4], 
-                    resultSet[5],
-                    resultSet[8],
-                    resultSet[9],
-                    resultSet[10],
-                    resultSet[11],
-                    resultSet[12],
-                    resultSet[13],
-                    resultSet[14],
-                    resultSet[15],
-                    resultSet[16],
-                    resultSet[17]
+                    result[1], 
+                    result[2], 
+                    result[3], 
+                    result[4], 
+                    result[5],
+                    result[8],
+                    result[9],
+                    result[10],
+                    result[11],
+                    result[12],
+                    result[13],
+                    result[14],
+                    result[15],
+                    result[16],
+                    result[17]
                 );
+
+                console.log(model.productName);
 
                 // Add to array
                 observableMovies.push(model);
