@@ -1,42 +1,39 @@
 {
-    "description": "NativeScript Application",
-    "license": "SEE LICENSE IN <your-license-filename>",
-    "readme": "NativeScript Application",
-    "repository": "<fill-your-repository-here>",
-    "nativescript": {
-        "id": "org.nativescript.playjs",
-        "tns-android": {
-            "version": "3.4.1"
-        },
-        "playground": {
-            "id": "1425110704.1518559658"
-        },
-        "tns-ios": {
-            "version": "3.4.1"
-        }
+  "description": "NativeScript Application",
+  "license": "SEE LICENSE IN <your-license-filename>",
+  "readme": "NativeScript Application",
+  "repository": "<fill-your-repository-here>",
+  "nativescript": {
+    "id": "org.nativescript.playjs",
+    "tns-android": {
+      "version": "3.4.1"
     },
-    "scripts": {
-        "lint": "eslint \"app/**/*.js\""
-    },
-    "dependencies": {
-        "kinvey-nativescript-sdk": "^3.10.0",
-        "nativescript-accelerometer": "^2.0.1",
-        "nativescript-camera": "^4.0.0",
-        "nativescript-fresco": "^3.0.6",
-        "nativescript-geolocation": "^4.2.3",
-        "nativescript-intl": "^3.0.0",
-        "nativescript-iqkeyboardmanager": "^1.2.0",
-        "nativescript-social-share": "^1.5.0",
-        "nativescript-sqlite": "^2.2.0",
-        "nativescript-theme-core": "~1.0.4",
-        "nativescript-ui-autocomplete": "^3.6.0",
-        "nativescript-ui-calendar": "^3.5.0",
-        "nativescript-ui-chart": "^3.5.0",
-        "nativescript-ui-dataform": "^3.5.0",
-        "nativescript-ui-gauge": "^3.5.0",
-        "nativescript-ui-listview": "^3.5.1",
-        "nativescript-ui-sidedrawer": "^3.5.1",
-        "tns-core-modules": "~3.4.1"
-    },
-    "devDependencies": {}
+    "tns-ios": {
+      "version": "3.4.1"
+    }
+  },
+  "scripts": {
+    "lint": "eslint \"app/**/*.js\""
+  },
+  "dependencies": {
+    "kinvey-nativescript-sdk": "^3.10.0",
+    "nativescript-accelerometer": "^2.0.1",
+    "nativescript-camera": "^4.0.0",
+    "nativescript-fresco": "^3.0.6",
+    "nativescript-geolocation": "^4.2.3",
+    "nativescript-intl": "^3.0.0",
+    "nativescript-iqkeyboardmanager": "^1.2.0",
+    "nativescript-social-share": "^1.5.0",
+    "nativescript-sqlite": "^2.2.0",
+    "nativescript-theme-core": "~1.0.4",
+    "nativescript-ui-autocomplete": "^3.6.0",
+    "nativescript-ui-calendar": "^3.5.0",
+    "nativescript-ui-chart": "^3.5.0",
+    "nativescript-ui-dataform": "^3.5.0",
+    "nativescript-ui-gauge": "^3.5.0",
+    "nativescript-ui-listview": "^3.5.1",
+    "nativescript-ui-sidedrawer": "^3.5.1",
+    "tns-core-modules": "~3.4.1"
+  },
+  "devDependencies": {}
 }
