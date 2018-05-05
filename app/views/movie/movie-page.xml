@@ -4,12 +4,12 @@
 	</ActionBar>
 	<GridLayout rows="auto,*" height="100%" >
 		<GridLayout row="0">
-			<Label text="{{ movie.productName }}" class="movie-label" id="movieLabel" />
+			<Label class="text-center"  text="{{ movie.productName }}" color="white" class="movie-label" id="movieLabel" />
 		</GridLayout>
 		<StackLayout row="1">
-			<Label text="{{ movie.longDescription }}"  textWrap="true" class="customMovie" />
-			<Image src="{{ movie.image }}"  class="customImage" />
-			<Label text="{{ movie.year }}" class="customYear" />
+			<Label class="text-center" text="{{ movie.longDescription }}" color="white"  textWrap="true" class="customMovie" />
+			<Image src="{{ movie.image }}" class="customImage" />
+			<Label class="text-center"  text="{{ movie.year }}" color="white" class="customYear" />
 		</StackLayout>
 	</GridLayout>
 </Page>
