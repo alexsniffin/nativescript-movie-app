@@ -64,6 +64,8 @@ function pageLoaded(args) {
                 observableMovies.push(model);
             });
 
+            observableMovies.reverse();
+
             view.getViewById(page, "myStack").animate({
                 opacity: 1,
                 duration: 5000
@@ -122,22 +124,7 @@ onUpcTap = function () {
     frameModule.topmost().navigate(navigationUPC);
 };
 
-onAddTap = function () {
-    console.log("Navigate to Manual add Page from Home Page");
-    const navigationAdd = {
-        moduleName: "views/Add/add-page",
-        animated: true,
-        transition: {
-            name: "slideBottom",
-            curve: "easeInOut",
-            duration: 800
-        }
-    };
-    frameModule.topmost().navigate(navigationAdd);
-};
-
 // exports.selectMovie = selectMovie;
 exports.onMovieTap = onMovieTap;
 exports.onUpcTap = onUpcTap;
-exports.onAddTap = onAddTap;
 exports.pageLoaded = pageLoaded;

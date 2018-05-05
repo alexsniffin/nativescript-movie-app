@@ -37,9 +37,9 @@ tapScan = function() {
 
 scanUpc = function() {
     barcodescanner.scan({
-        cancelLabel: "EXIT. Also, try the volume buttons!", // iOS only, default 'Close'
-        cancelLabelBackgroundColor: "#333333", // iOS only, default '#000000' (black)
-        message: "Use the volume buttons for extra light", // Android only, default is 'Place a barcode inside the viewfinder rectangle to scan it.'
+        formats: "UPA_A,UPC_E",
+        beepOnScan: true,
+        message: "Scan UPC. Use the volume buttons for extra light.", // Android only, default is 'Place a barcode inside the viewfinder rectangle to scan it.'
         openSettingsIfPermissionWasPreviouslyDenied: true // On iOS you can send the user to the settings app if access was previously denied
       }).then(
           function(result) {
@@ -65,7 +65,7 @@ scanUpc = function() {
             console.log("No scan: " + error);
           }
       );
-}
+};
 
 exports.tapScan = tapScan;
 exports.pageLoaded = pageLoaded;
