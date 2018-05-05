@@ -6,7 +6,7 @@
   "nativescript": {
     "id": "org.nativescript.playjs",
     "tns-android": {
-      "version": "3.4.1"
+      "version": "3.4.0"
     },
     "tns-ios": {
       "version": "3.4.1"
@@ -19,21 +19,25 @@
     "kinvey-nativescript-sdk": "^3.10.0",
     "nativescript-accelerometer": "^2.0.1",
     "nativescript-camera": "^4.0.0",
-    "nativescript-fresco": "^3.0.6",
-    "nativescript-geolocation": "^4.2.3",
+    "nativescript-fresco": "^3.0.7",
     "nativescript-intl": "^3.0.0",
     "nativescript-iqkeyboardmanager": "^1.2.0",
     "nativescript-social-share": "^1.5.0",
     "nativescript-sqlite": "^2.2.0",
     "nativescript-theme-core": "~1.0.4",
-    "nativescript-ui-autocomplete": "^3.6.0",
-    "nativescript-ui-calendar": "^3.5.0",
-    "nativescript-ui-chart": "^3.5.0",
-    "nativescript-ui-dataform": "^3.5.0",
-    "nativescript-ui-gauge": "^3.5.0",
-    "nativescript-ui-listview": "^3.5.1",
+    "nativescript-ui-autocomplete": "^3.7.0",
+    "nativescript-ui-calendar": "^3.6.0",
+    "nativescript-ui-chart": "^3.6.0",
+    "nativescript-ui-dataform": "^3.6.0",
+    "nativescript-ui-gauge": "^3.6.0",
+    "nativescript-ui-listview": "^3.5.5",
     "nativescript-ui-sidedrawer": "^3.5.1",
-    "tns-core-modules": "~3.4.1"
+    "tns-core-modules": "~3.4.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "babel-traverse": "6.4.5",
+    "babel-types": "6.4.5",
+    "babylon": "6.4.5",
+    "lazy": "1.0.11"
+  }
 }
