@@ -1,12 +1,10 @@
-<Page loaded="loaded" xmlns:lv="nativescript-ui-listview">
-	<ActionBar title="mobileMovies" class="action-bar">
+<Page loaded="pageLoaded" xmlns:lv="nativescript-ui-listview">
+	<ActionBar title="Scanner" class="action-bar">
 	</ActionBar>
 
-    <GridLayout orientation="vertical" columns="*" rows="*,*,*" >
-        <Label text="This is the scan a UPC symbol Page" class="custom1" textWrap="true" col="0" row="0"/>
+    <GridLayout orientation="vertical" columns="*" rows="auto,*" >
+        <Label text="Scan a UPC code from your DVD case" style="text-align: center; font-weight: bold; margin-top: 30px;" fontSize="16" textWrap="true" col="0" row="0"/>
 
-        <Label text="&#xe937;" class="icon" color="lightblue" col="0" row="1"/>
-
-        <Label text="then add to the data list to database" textWrap="true" class="custom1" col="0" row="2"/>
+        <Image src="~/images/upc-scan.png" style="text-align: center;" verticalAlignment="center" tap="tapScan" col="0" row="1" width="80%" />
     </GridLayout>
 </Page>

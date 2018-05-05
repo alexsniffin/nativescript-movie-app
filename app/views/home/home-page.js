@@ -21,7 +21,7 @@ function pageLoaded(args) {
     if (context != undefined ) {
 
     }
-
+    
     // create a database context and set up the page
     observableMovies.splice(0,observableMovies.length);
     db.start(context => {
