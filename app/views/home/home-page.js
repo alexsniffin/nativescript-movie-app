@@ -81,22 +81,30 @@ function pageLoaded(args) {
 }
 
 onMovieTap = function (args) {
+    var movieToNav;
 
     observableMovies.forEach(movie=>{
-        if(movie.id === args.object.id){
-            const navigateMovie = {
-                moduleName: 'views/movie/movie-page',
-                context: movie,
-                animated: true,
-                transition: {
-                    name: "slideLeft",
-                    curve: "easeInOut",
-                    duration: 800
-                }
-            };
-            frameModule.topmost().navigate(navigateMovie);
+        console.log("Model UPC: " + movie.upc);
+        console.log("XML UPC: " + args.object.movieUpc);
+
+        if (movie.upc === args.object.movieUpc) {
+            movieToNav = movie;
+            console.log("Mapping movie to nav context");
         }
-    })    
+    });
+    
+    const navigateMovie = {
+        moduleName: 'views/movie/movie-page',
+        context: movieToNav,
+        animated: true,
+        transition: {
+            name: "slideLeft",
+            curve: "easeInOut",
+            duration: 800
+        }
+    };
+
+    frameModule.topmost().navigate(navigateMovie);
 };
 
 
