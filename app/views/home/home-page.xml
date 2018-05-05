@@ -12,7 +12,7 @@
 		<ScrollView orientation="vertical" height="100%">
 				<ListView class="list-group" items="{{ observableMovies }}">
 					<ListView.itemTemplate>
-						<GridLayout class="list-group-item" columns="*,*,*,*" height="auto">
+						<GridLayout class="list-group-item" columns="*,*,*,*">
 							<Image src= "{{ image }}" size="auto" col="0" />
 							<Button text="{{ productName || 'Default' }}" tap="onMovieTap" class="font-weight-bold" col="1" colSpan="2" color="white" textWrap="true" />
 							<Label text="{{ year || 'Default' }}" col="3" class="font-weight-bold" color="white" textWrap="true" />

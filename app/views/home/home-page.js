@@ -23,9 +23,11 @@ function pageLoaded(args) {
     }
 
     // create a database context and set up the page
+    observableMovies.splice(0,observableMovies.length);
     db.start(context => {
         dbContext = context;
         
+        // barcodeService.getAndInsert("786936849769", dbContext, (barcodeId, omdbId, barCodeResult, omdbResult) => { });
 
         dbContext.all('select * from barcode left join omdb on barcode.id == omdb.barcodeID', function(err, resultSet) {
             console.log("Result set is:", resultSet);
@@ -78,29 +80,25 @@ function pageLoaded(args) {
     });
 }
 
-function selectMovie(args) {
-    //parse the movie info
-    let myID =  args.object.id;
-    let myMovie = page.getViewById(myID).id;
-    let myIndex = myMovie;
-    var stringLength = myIndex.length;
-    var lastChar = myIndex.charAt(stringLength - 1);
-    let movieTapped = homeViewModel[lastChar];
+onMovieTap = function (args) {
 
-
-    //navigate to next page
-    const navigateMovie = {
-        moduleName: 'views/movie/movie-page',
-        context: movieTapped ,
-        animated: true,
-        transition: {
-            name: "slideLeft",
-            curve: "easeInOut",
-            duration: 800
+    observableMovies.forEach(movie=>{
+        if(movie.id === args.object.id){
+            const navigateMovie = {
+                moduleName: 'views/movie/movie-page',
+                context: movie,
+                animated: true,
+                transition: {
+                    name: "slideLeft",
+                    curve: "easeInOut",
+                    duration: 800
+                }
+            };
+            frameModule.topmost().navigate(navigateMovie);
         }
-    };
-    frameModule.topmost().navigate(navigateMovie);
+    })    
 };
+
 
 onUpcTap = function () {
     console.log("Navigate to UPC Page from Home Page");
@@ -130,7 +128,8 @@ onAddTap = function () {
     frameModule.topmost().navigate(navigationAdd);
 };
 
-exports.selectMovie = selectMovie;
+// exports.selectMovie = selectMovie;
+exports.onMovieTap = onMovieTap;
 exports.onUpcTap = onUpcTap;
 exports.onAddTap = onAddTap;
 exports.pageLoaded = pageLoaded;
