@@ -2,7 +2,8 @@
 
 .icon {
     font-family: 'IcoMoon-Free', 'icomoon';
-    font-size: 40;
+    font-size: 25;
+    padding: 20px;
 
 }
 
@@ -19,4 +20,8 @@
 .view {
     animation-name: opacity;
     animation-duration: 100;
+}
+
+.header-label{
+    padding: 30px;
 }

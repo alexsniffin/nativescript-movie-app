@@ -25,6 +25,7 @@ function pageLoaded(args) {
     // create a database context and set up the page
     db.start(context => {
         dbContext = context;
+        
 
         dbContext.all('select * from barcode left join omdb on barcode.id == omdb.barcodeID', function(err, resultSet) {
             console.log("Result set is:", resultSet);

@@ -3,18 +3,19 @@
 	</ActionBar>
 
 	<StackLayout class="home-panel" id="myStack">
-		<Label text="My Movie Collection" class="header-label" />
-		<GridLayout rows="*" columns="auto,*,auto,*" height="60">
-			<Label text="&#xe937;" class="icon" tap="onUpcTap" textAlignment="left" row="0" col="0"/>
-			<Label text="&#xea0a;" class="icon" tap="onAddTap" textAlignment="right"  row="0" col="3" />
+		<Label text="My Movie Collection" class="header-label" color="white" textAlignment="center" />
+		<GridLayout rows="*" columns="*,*,*,*" height="20" >
+			<Label text="&#xe937;" class="icon" col="0" color="white" tap="onUpcTap" textAlignment="center" row="0" col="0"/>
+			<Label text="&#xea0a;" class="icon" col="3" tap="onAddTap" color="white" textAlignment="center"  row="0" col="3" />
 		</GridLayout>
-		<ScrollView orientation="vertical">
-				<ListView items="{{ observableMovies }}">
+		<StackLayout class="hr-light m-10"></StackLayout>
+		<ScrollView orientation="vertical" height="100%">
+				<ListView class="list-group" items="{{ observableMovies }}">
 					<ListView.itemTemplate>
-						<GridLayout columns="*,*,*" rows="*,*,*">
-							<Image src= "{{ image }}" col="0" />
-							<Label text="{{ productName || 'Default' }}" col="1" color="black" textWrap="true" />
-							<Label text="{{ year || 'Default' }}" col="2" color="black" textWrap="true" />
+						<GridLayout class="list-group-item" columns="*,*,*,*" height="auto">
+							<Image src= "{{ image }}" size="auto" col="0" />
+							<Button text="{{ productName || 'Default' }}" tap="onMovieTap" class="font-weight-bold" col="1" colSpan="2" color="white" textWrap="true" />
+							<Label text="{{ year || 'Default' }}" col="3" class="font-weight-bold" color="white" textWrap="true" />
 						</GridLayout>
 					</ListView.itemTemplate>
 				</ListView>
