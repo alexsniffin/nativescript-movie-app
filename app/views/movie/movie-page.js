@@ -16,4 +16,4 @@ exports.pageloaded = function (args) {
     if (context != undefined ) {
         page.bindingContext = bindingObj;
     }
-}
+};

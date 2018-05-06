@@ -1,24 +1,29 @@
 <Page loaded="pageLoaded" class="page" xmlns="http://www.nativescript.org/tns.xsd">
-	<ActionBar title="mobileMovies" class="action-bar">
+	<ActionBar title="Home" class="action-bar">
+		<ActionBar.actionItems>
+				<ActionItem>
+				<ActionItem.actionView>
+					<GridLayout height="50" rows="*" columns="auto,*,auto">
+						<Label text="Home" style="font-weight:bold;" col="0" color="white" row="0" fontSize="18" verticalAlignment="center" />
+						<Label text="Scan a New Movie" style="text-align: right;" col="1" color="white" row="0" fontSize="18" verticalAlignment="center" tap="onUpcTap" />
+						<Label text="&#xe937;" class="icon" col="2" color="white" row="0" fontSize="36" tap="onUpcTap" />
+					</GridLayout>
+				</ActionItem.actionView>
+				</ActionItem>
+		</ActionBar.actionItems>
+		<ActionItem tap="onNavTap" path="settings" ios.systemIcon="2" ios.position="right" android.systemIcon="ic_menu_edit" android.position="actionBar"></ActionItem>
 	</ActionBar>
 
 	<StackLayout class="home-panel" id="myStack">
-		<Label text="My Movie Collection" class="header-label" color="white" textAlignment="center" />
-		<GridLayout rows="*" columns="*,*,*,*" height="20" >
-			<Label text="&#xe937;" class="icon" col="0" color="white" tap="onUpcTap" textAlignment="center" row="0" col="0"/>
-			<Label text="&#xea0a;" class="icon" col="3" tap="onAddTap" color="white" textAlignment="center"  row="0" col="3" />
-		</GridLayout>
-		<StackLayout class="hr-light m-10"></StackLayout>
 		<ScrollView orientation="vertical" height="100%">
-				<ListView class="list-group" items="{{ observableMovies }}">
-					<ListView.itemTemplate>
-						<GridLayout tap="onMovieTap" movieUpc="{{ upc }}" class="list-group-item" columns="*,*,*,*">
-							<Image src= "{{ image }}" size="auto" col="0" />
-							<Label text="{{ productName || '' }}" class="font-weight-bold" col="1" colSpan="2" color="white" textWrap="true" />
-							<Label text="{{ year || '' }}" col="3" class="font-weight-bold" color="white" textWrap="true" />
-						</GridLayout>
-					</ListView.itemTemplate>
-				</ListView>
+			<ListView class="list-group" style="background-color: #666;" items="{{ observableMovies }}">
+				<ListView.itemTemplate>
+					<GridLayout tap="onMovieTap" movieUpc="{{ upc }}" class="list-group-item" style="background-color: #444;" columns="*" rows="auto,auto">
+						<Label text="{{ productName + ' ' + year || 'Year N/A' }}" style="text-align: center;" horizontalAlignment="center" class="font-weight-bold" col="0" row="0" color="white" textWrap="true" fontSize="20" />
+						<Image src= "{{ image }}" style="text-align: center;" horizontalAlignment="center" size="auto" col="0" row="1" style="margin-top: 10px;" />
+					</GridLayout>
+				</ListView.itemTemplate>
+			</ListView>
 		</ScrollView>
 	</StackLayout>
 </Page>
