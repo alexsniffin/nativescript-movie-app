@@ -2,14 +2,24 @@
 
 	<ActionBar title="Movie Details" class="action-bar">
 	</ActionBar>
-	<GridLayout rows="auto,*" height="100%" >
-		<GridLayout row="0">
-			<Label class="text-center"  text="{{ movie.productName }}" color="white" class="movie-label" id="movieLabel" />
+	<ScrollView>
+	<GridLayout rows="auto,auto" height="100%" >
+		<GridLayout row="0" padding="30px">
+			<Label class="text-center"  text="{{ movie.productName }}" class="font-weight-bold" color="white" class="movie-label" id="movieLabel" textAlignment="center" />
 		</GridLayout>
 		<StackLayout row="1">
-			<Label class="text-center" text="{{ movie.longDescription }}" color="white"  textWrap="true" class="customMovie" />
-			<Image src="{{ movie.image }}" class="customImage" />
-			<Label class="text-center"  text="{{ movie.year }}" color="white" class="customYear" />
+			<Image src="{{ movie.image }}" size="auto" padding="30px" />
+			<GridLayout rows="auto,auto,auto,auto" columns="30%,*">
+				<Label text="Description: " row="0" col="0"  color="white" />
+				<Label text="{{ movie.longDescription }}" row="0" col="1"   color="white" textWrap="true"/>
+				<Label text="Release Year: " row="1"  col="0" />
+				<Label text="{{ movie.year }}" color="white" row="1" col="1" padding="40px" />
+				<Label text="Movie Rating: " row="2"  col="0" />
+				<Label text="{{ movie.rating }}" row="2" col="1"  color="white" padding="40px"/>
+				<Label text="Movie Genre: " row="3"  col="0"/>
+				<Label text="{{ movie.genre }}" row="3" col="1" color="white" padding="40px"/>
+			</GridLayout>
 		</StackLayout>
 	</GridLayout>
+	</ScrollView>
 </Page>

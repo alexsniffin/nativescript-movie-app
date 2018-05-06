@@ -23,11 +23,10 @@ function pageLoaded(args) {
     }
     
     // create a database context and set up the page
-    // observableMovies.splice(0,observableMovies.length);
+    observableMovies.splice(0,observableMovies.length);
     db.start(context => {
         dbContext = context;
         
-        // barcodeService.getAndInsert("786936849769", dbContext, (barcodeId, omdbId, barCodeResult, omdbResult) => { });
 
         dbContext.all('select * from barcode left join omdb on barcode.id == omdb.barcodeID', function(err, resultSet) {
             console.log("Result set is:", resultSet);
