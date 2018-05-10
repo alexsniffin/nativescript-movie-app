@@ -4,7 +4,7 @@ var OmdbModel = require("../../models/omdb/omdb-model");
 const key = "53f133e4"
 const api = (productName) => "https://www.omdbapi.com/?t=" + productName + "&apikey=" + key
 
-const badWords = ["blu", "ray", "dvd", "digital", "hd", "pre", "played"]
+const badWords = ["blu", "ray", "dvd", "digital", "hd", "pre", "played", "4k", "uhd", "WS", "dvd_video"]
 
 exports.getMovie = function (productName, callback) {
     var regex = /\w+/g;

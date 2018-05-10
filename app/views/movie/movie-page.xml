@@ -1,25 +1,36 @@
 <Page loaded="pageloaded" class="page" padding="20" xmlns="http://www.nativescript.org/tns.xsd">
-
 	<ActionBar title="Movie Details" class="action-bar">
 	</ActionBar>
-	<ScrollView>
 	<GridLayout rows="auto,auto" height="100%" >
-		<GridLayout row="0" padding="30px">
-			<Label class="text-center"  text="{{ movie.productName }}" class="font-weight-bold" color="white" class="movie-label" id="movieLabel" textAlignment="center" />
-		</GridLayout>
-		<StackLayout row="1">
-			<Image src="{{ movie.image }}" height="350" width="350" padding="30px" />
-			<GridLayout rows="auto,auto,auto,auto" columns="*,3*">
-				<Label text="Description: " row="0" col="0"  color="white" />
-				<Label text="{{ movie.longDescription }}" row="0" col="1"   color="white" textWrap="true"/>
-				<Label text="Release Year: " row="1" color="white"  col="0" textWrap="true" />
-				<Label text="{{ movie.year }}" color="white" row="1" col="1" />
-				<Label text="Movie Rating: " row="2" color="white"  col="0" textWrap="true"/>
-				<Label text="{{ movie.rating }}" row="2" col="1"  color="white" />
-				<Label text="Movie Genre: " row="3" color="white"  col="0" textWrap="true" />
-				<Label text="{{ movie.genre }}" row="3" col="1" color="white" />
+		<ScrollView orientation="vertical" height="100%">
+			<GridLayout row="0" padding="30px">
+				<Label class="text-center"  text="{{ movie.productName }}" class="font-weight-bold" color="white" class="movie-label" id="movieLabel" textAlignment="center" />
 			</GridLayout>
-		</StackLayout>
+			<StackLayout row="1">
+				<Image src="{{ movie.image }}" height="350" width="350" padding="30px" />
+				<GridLayout rows="auto,auto,auto,auto,auto,auto,auto,auto,auto,auto" columns="*,3*">
+					<Label text="Description: " row="0" col="0"  color="white" />
+					<Label text="{{ movie.longDescription }}" row="0" col="1"   color="white" textWrap="true"/>
+					<Label text="Release Year: " row="1" color="white"  col="0" textWrap="true" />
+					<Label text="{{ movie.year }}" color="white" row="1" col="1" />
+					<Label text="NPAA Rating: " row="2" color="white"  col="0" textWrap="true" />
+					<Label text="{{ movie.rated }}" color="white" row="2" col="1" />
+					<Label text="Release Year: " row="3" color="white"  col="0" textWrap="true" />
+					<Label text="{{ movie.year }}" color="white" row="3" col="1" />
+					<Label text="Movie Rating: " row="4" color="white"  col="0" textWrap="true"/>
+					<Label text="{{ movie.rating }}" row="4" col="1"  color="white" />
+					<Label text="Movie Genre: " row="5" color="white"  col="0" textWrap="true" />
+					<Label text="{{ movie.genre }}" row="5" col="1" color="white" />
+					<Label text="Runtime: " row="6" color="white"  col="0" textWrap="true" />
+					<Label text="{{ movie.time }}" color="white" row="6" col="1" />
+					<Label text="Director(s): " row="7" color="white"  col="0" textWrap="true" />
+					<Label text="{{ movie.director }}" color="white" row="7" col="1" />
+					<Label text="Writer(s): " row="8" color="white"  col="0" textWrap="true" />
+					<Label text="{{ movie.wrtiers }}" color="white" row="8" col="1" />
+					<Label text="Language: " row="9" color="white"  col="0" textWrap="true" />
+					<Label text="{{ movie.language }}" color="white" row="9" col="1" />
+				</GridLayout>
+			</StackLayout>
+		</ScrollView>
 	</GridLayout>
-	</ScrollView>
 </Page>
