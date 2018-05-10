@@ -1,4 +1,4 @@
-<Page loaded="pageloaded" class="page" xmlns="http://www.nativescript.org/tns.xsd">
+<Page loaded="pageloaded" class="page" padding="20" xmlns="http://www.nativescript.org/tns.xsd">
 
 	<ActionBar title="Movie Details" class="action-bar">
 	</ActionBar>
@@ -8,16 +8,16 @@
 			<Label class="text-center"  text="{{ movie.productName }}" class="font-weight-bold" color="white" class="movie-label" id="movieLabel" textAlignment="center" />
 		</GridLayout>
 		<StackLayout row="1">
-			<Image src="{{ movie.image }}" size="auto" padding="30px" />
-			<GridLayout rows="auto,auto,auto,auto" columns="30%,*">
+			<Image src="{{ movie.image }}" height="350" width="350" padding="30px" />
+			<GridLayout rows="auto,auto,auto,auto" columns="*,3*">
 				<Label text="Description: " row="0" col="0"  color="white" />
 				<Label text="{{ movie.longDescription }}" row="0" col="1"   color="white" textWrap="true"/>
-				<Label text="Release Year: " row="1"  col="0" />
-				<Label text="{{ movie.year }}" color="white" row="1" col="1" padding="40px" />
-				<Label text="Movie Rating: " row="2"  col="0" />
-				<Label text="{{ movie.rating }}" row="2" col="1"  color="white" padding="40px"/>
-				<Label text="Movie Genre: " row="3"  col="0"/>
-				<Label text="{{ movie.genre }}" row="3" col="1" color="white" padding="40px"/>
+				<Label text="Release Year: " row="1" color="white"  col="0" textWrap="true" />
+				<Label text="{{ movie.year }}" color="white" row="1" col="1" />
+				<Label text="Movie Rating: " row="2" color="white"  col="0" textWrap="true"/>
+				<Label text="{{ movie.rating }}" row="2" col="1"  color="white" />
+				<Label text="Movie Genre: " row="3" color="white"  col="0" textWrap="true" />
+				<Label text="{{ movie.genre }}" row="3" col="1" color="white" />
 			</GridLayout>
 		</StackLayout>
 	</GridLayout>
